@@ -39,6 +39,11 @@ In your notebook, make a clear description of the experiment, the variables and 
 Below are some questions to guide your analysis :
 
 - Is PANU correlated with SANU and/or EENU?
+We used a Spearman correlation, because we don't have assumptions about the distribution of the data. We do not assume linear relationship between variables.
+```{r correlation PANU-SANU}
+cor.test(nonuse$PANU, nonuse$SANU, method = "spearman")
+```
+
 
 - Visualize the PANU-SANU relationship (and the PANU-EENU relationship)
 
