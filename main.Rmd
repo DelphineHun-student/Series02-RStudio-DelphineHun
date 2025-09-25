@@ -1,5 +1,5 @@
 ---
-title: "Series-02-Rstudio : corelations and statistical test"
+title: "Series-02-Rstudio : correlations and statistical test"
 author: "Delphine HUND"
 date: "`r format(Sys.time(), '%d %B, %Y, %H:%M')`"
 output:
@@ -28,6 +28,12 @@ This file contains measures of upper extremity nonuse:
     EENU: Elbow Extension Non Use
 
 In your notebook, make a clear description of the experiment, the variables and the data. Do not forget to give the units of each variable, and the range of possible values.
+
+| name | description | unit | range
+|---|-------|--|-----
+| PANU | Proximal Arm Non Use | % | O-100 |
+| SANU | Shoulder Antepulsion Non Use | % | O-100 |
+| EENU | Elbow Extension Non Use | % | O-100 |
 
 ## Corelation analysis
 Below are some questions to guide your analysis :
