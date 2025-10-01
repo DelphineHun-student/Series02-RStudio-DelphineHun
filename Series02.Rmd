@@ -301,7 +301,7 @@ wilcox.test(weight ~ snore, data = data_s)
 ```
 **Results :** There was no significant difference in weight between snorers and non-snorers (p = 0.9079), suggesting that the stereotype is not confirmed in this sample
 
-#### Do snorers drink more?
+#### Do snorers drink more? Smoke more?
 **alcool consomation :**
 ```{r}
 alcool = data_s$alcool
@@ -354,7 +354,7 @@ ggplot(w_plot, aes(x = time, y = value, fill = time)) +
 
 #### Do women smoke less?
 ```{r Chi-square test}
-tab <- table(snore$sex, snore$tabac)
+tab <- table(data_s$sex, data_s$tabac)
 tab
 
 # Chi-square test
@@ -367,7 +367,6 @@ barplot(t(prop_tab), beside = TRUE, legend = TRUE,
         main = "Smoking status by sex",
         xlab = "Sex", ylab = "Proportion")
 ```
-
 
 **Results : ** A chi-square test revealed that women were significantly less likely to smoke than men (χ² = 7.0023, p = 0.00814), supporting the stereotype that women smoke less.
 
