@@ -244,7 +244,7 @@ shapiro.test(diff)
 ```
 The Shapiro–Wilk test indicated that the distribution of the differences did not significantly deviate from normality (W = 0.899, p = 0.283). Therefore, we applied a paired t-test to evaluate the effect of the treatment
 
-```{r}
+```{r t test efect of treatment} 
 resultat <- t.test(before, after, paired = TRUE)
 
 resultat
@@ -252,7 +252,7 @@ resultat
 
 **Graph?**
 
-```{r}
+```{r plot effect of treatment}
 df_plot <- data.frame(
   value = c(before, after),
   time  = factor(rep(c("Before", "After"), each = length(before)),
@@ -275,18 +275,29 @@ ggplot(df_plot, aes(x = time, y = value, fill = time)) +
 Stereotypes about snorers among others.
 
 ### The data
-Download the file snore.txt
 ```{r load data snore}
 snore <- read.table("data/test_data/snore.txt", header = TRUE)
 head(snore)
 summary(snore)
 ```
-
 This file contains anthropometric and qualitative measurements (1 person per line).
 
-2.3.2 The analysis
+### The analysis
 Do the data confirm the following stereotypes? Provide a reasoned answer (data, figure, result sentence) for each question.
-Are snorers fatter?
+Are snorers fatter?**
+```{r}
+weight = snore$weight
+shapiro.test(weight)
+```
+The Shapiro–Wilk test indicated that the distribution significantly deviate from normality (W = 0.899, p < 0.001).
+
+```{r snore variables}
+snorers = snore$[snore$snore=="O"]
+women = snore$[snore$sex=="F"]
+men = snore$[snore$sex=="H"]
+```
+
+before = prepost$perf[prepost$time=="Before"]
 Do snorers drink or smoke more?
 Are men fatter?
 Do women smoke less?
