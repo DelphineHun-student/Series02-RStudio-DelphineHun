@@ -59,7 +59,9 @@ cor.test(nonuse$PANU, nonuse$SANU, method = "spearman")
 cor.test(nonuse$PANU, nonuse$EENU, method = "spearman")
 ```
 
-### PANU-SANU relationship
+### Relationship with PANU
+
+- PANU-SANU relationship
 
 ```{r plot SANU-lm}
 library(ggplot2)
@@ -72,7 +74,7 @@ ggplot(nonuse, aes(x=PANU, y=SANU)) +
 labs(title="PANU vs. SANU", x="PANU (%)", y="SANU (%)")
 ```
 
-### PANU-EENU relationship
+- PANU-EENU relationship
 
 ```{r plot EENU-lm}
 
@@ -85,7 +87,9 @@ ggplot(nonuse, aes(x=PANU, y=EENU)) +
 labs(title="PANU vs. EENU", x="PANU (%)", y="EENU (%)")
 ```
 
-### Linear regression for PANU-SANU
+### Linear regression
+
+- PANU-SANU
 
 ```{r lm/SANU}
 lm_sanu <- lm(SANU ~ PANU, data=nonuse)
@@ -96,7 +100,7 @@ intercept_1 <- coef(lm_sanu)[1] #?
 cat("Regression equation: SANU=", slope_1, "PANU +", intercept_1, "\n")
 ```
 
-### Linear regression for PANU-EENU
+- PANU-EENU
 
 ```{r lm/EENU}
 lm_eenu <- lm(EENU ~ PANU, data=nonuse)
@@ -137,7 +141,7 @@ In addition, the variables show large variability and extreme values, which may 
 Finally, the use of linear regression assumes a linear relationship, which may not fully capture the complexity of the data
 (with GPT's help)
 
-# Statistical tests: comparison of medians (or means?)
+# Statistical tests: comparison of medians/means
 
 In this series of exercises, the aim is to explore how to compare two groups of data, using non-parametric tests (or parametric tests).
 
@@ -220,7 +224,7 @@ This file contains before/after measurements. The treatment is a rehabilitation 
 
 | Variable | Description | Unit | Possible values | Expected change |
 
-2.2.2 The analysis
+### The analysis
 You want to know if the treatment has an effect on one or more of the measured variables.
 
 Does the treatment have an effect?
