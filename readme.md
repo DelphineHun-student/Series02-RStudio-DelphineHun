@@ -1,30 +1,58 @@
-# A minimal template for data analysis with RStudio
+# README – Series02 Analysis
 
-This is a minimal template for data analysis with RStudio, intended to researchers in human movement sciences that are new to RStudio.  
+## 1. Introduction
+This project explores the effect of treatment and lifestyle factors on health-related variables, using datasets provided in the course.  
+The goal was to practice basic statistical analysis: from descriptive statistics to hypothesis testing, and to report results in a scientific style.
 
-Cloning this template for each new data analysis problem should facilitate data analyses with RStudio and minimize potential errors.
+---
 
-# Features 
-- A minimal RStudio project structure
-- A R Markdown notebook with a minimal data analysis pipeline
-- A `.gitignore` file to tell Git which files to share and not to share
+## 2. Dataset
+- Files used: `NonUse.csv`, `PrePost.csv`,  `snore.txt`  
+- Main variables:  
+  - Anthropometric data (e.g., weight, sex)  
+  - Lifestyle factors (smoking, drinking)  
+  - Clinical/experimental outcomes (snoring status, performance before/after)
 
-# Usage (without Git)
+---
 
-- Download as a zip file (green button `< > Code` on the top right of the page)
-- Expand the archive on your computer (e.g., in your `Download` folder).
-- Rename the extracted folder with the name of your new project (e.g., `SeriesOO_analysis`).
-- Move the new `SeriesOO_analysis` folder where it should be located (e.g., in your `Documents/CodeProjects/` directory)
+## 3. Descriptive Statistics
+- Computed **mean, median, variance, standard deviation**.  
+- Tested **normality** using the Shapiro–Wilk test.  
+- Produced summary tables and visualizations (boxplots, histograms, QQ-plots).
+
+---
+
+## 4. Statistical Testing
+### a) Turn-taking dataset (PANU, SANU, EENU)
+- Spearman correlations to assess associations.  
+- Linear regressions with regression equations reported (e.g., PANU ~ SANU).  
+
+### b) Snoring dataset
+- Tested stereotypes such as:  
+  - *Are snorers fatter?* → Wilcoxon test (weight ~ snorer).  
+  - *Do women smoke less?* → Chi-square / Fisher’s exact test (smoking ~ sex). 
+  - ...
+- Visualizations: boxplots and barplots
+
+### c) Treatment dataset (Before vs After)
+- Normality of differences tested with **Shapiro–Wilk**.  
+- Applied **paired t-test** (if normal) or **Wilcoxon signed-rank test**.  
+- Visualized effect with boxplots and line plots.
+
+---
+
+## 5. Results Reporting
+- Results expressed with clear sentences, e.g.:  
+  *“A paired t-test revealed that performance was significantly higher after treatment compared to before (t(7) = –5.40, p = 0.001).”*  
+- Non-significant results explicitly reported, e.g.:  
+  *“No significant difference in weight was found between snorers and non-snorers (p > 0.05).”*
+
+---
+
+## 6. Limits of the Analysis
+- Some associations were weak or explained little variance.  
+- Non-normality and missing data reduced statistical power.  
+- Parametric assumptions often not satisfied → reliance on non-parametric tests.
 
 
-# Usage (with Git)
-As this is a template repository, you can clone it to your computer and use it as a starting point for your new data analysis project.
-- Do exactly the same as above, plus... 
-- Use GitHub-Desktop to create a new Git repository from the folder you just created.
-  - Click on `File` > `New repository...` You will need to provide:
-    - The name of your new project (e.g., `ECG_analysis`).
-    - A short description of your project (e.g., `ECG analysis of 100 healthy individuals for my PhD`).
-    - The path to the folder you just created (e.g., `Documents/CodeProjects/ECG_analysis`).
-    - Choose None for the .gitignore file (this template already has a specific one).
-    - Choose None for the License file (this template already has a GNU GPLv3 License).
-
+---
