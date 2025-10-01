@@ -1,5 +1,5 @@
 ---
-title: "Series-02-Rstudio : correlations and statistical test"
+title: "Series-02-Rstudio : correlations and statistical tests"
 author: "Delphine HUND"
 date: "`r format(Sys.time(), '%d %B, %Y, %H:%M')`"
 output:
@@ -44,12 +44,18 @@ In your notebook, make a clear description of the experiment, the variables and 
 ## Corelation analysis
 Below are some questions to guide your analysis :
 
-- Is PANU correlated with SANU and/or EENU?
+- Correlation between PANU/SANU
 We used a Spearman correlation, because we don't have assumptions about the distribution of the data. We do not assume linear relationship between variables.
 ```{r correlation PANU-SANU}
 cor.test(nonuse$PANU, nonuse$SANU, method = "spearman")
 ```
+- Correlation between PANU/EENU
+```{r correlation PANU-EENU}
+cor.test(nonuse$PANU, nonuse$EENU, method = "spearman")
+```
+
 - PANU-SANU relationship
+
 ```{r plot SANU-lm}
 library(ggplot2)
 ggplot(nonuse, aes(x=PANU, y=SANU)) +
@@ -62,6 +68,7 @@ labs(title="PANU vs. SANU", x="PANU (%)", y="SANU (%)")
 ```
 
 - PANU-EENU relationship
+
 ```{r plot EENU-lm}
 
 ggplot(nonuse, aes(x=PANU, y=EENU)) +
@@ -76,6 +83,7 @@ theme_minimal()
 ```
 
 - Linear regression for PANU-SANU
+
 ```{r lm/SANU}
 lm_sanu <- lm(SANU ~ PANU, data=nonuse)
 summary(lm_sanu)
@@ -86,6 +94,7 @@ cat("Regression equation: SANU=", slope_1, "PANU +", intercept_1, "\n")
 ```
 
 - Linear regression for PANU-EENU
+
 ```{r lm/EENU}
 lm_eenu <- lm(EENU ~ PANU, data=nonuse)
 summary(lm_eenu)
@@ -109,7 +118,10 @@ b <- -intercept_2 / slope_2
 cat("Regression equation : PANU =", a, "* EENU +", b, "\n")
 ```
 
-- Summarize your results as you would do in your master’s thesis report, or as in a scientific article (e.g., What sentence will you write in the article explaining your result?).
+- Results
+
+Spearman’s rank correlation rho showed a weak but significant positive association between PANU and SANU (ρ = 0.216, p = 0.0017), while a moderate and significant positive association was found between PANU and EENU (ρ = 0.387, p < 0.0001). Linear regression analyses confirmed these results: no significant relationship was observed between SANU and PANU (SANU = 0.089 × PANU + 0.586, R² = 0.009, p = 0.171), whereas a significant positive relationship was found between EENU and PANU (EENU = 0.565 × PANU + 3.284, R² = 0.225, p < 0.0001). When PANU was expressed as a function of SANU and EENU, the regression equations obtained were PANU = 11.195 × SANU – 6.561 and PANU = 1.771 × EENU – 5.816,  respectively.
+(with GPT's help)
 
 - What are the limits of your analysis?
 
