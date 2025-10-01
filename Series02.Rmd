@@ -301,7 +301,7 @@ wilcox.test(weight ~ snore, data = data_s)
 ```
 **Results :** There was no significant difference in weight between snorers and non-snorers (p = 0.9079), suggesting that the stereotype is not confirmed in this sample
 
-#### Do snorers drink or smoke more?
+#### Do snorers drink more?
 **alcool consomation :**
 ```{r}
 alcool = data_s$alcool
@@ -309,7 +309,7 @@ shapiro.test(alcool)
 ```
 The Shapiro–Wilk test indicated that the distribution significantly deviate from normality (W = 0.83114, p < 0.001)
 
-```{r plot + wilcoxon test}
+```{r plot + wilcoxon test alcool}
 boxplot(alcool ~ snore, data = data_s,
         main = "Alcool consomation by Snorer Status",
         xlab = "Snorer", ylab = "Weight")
@@ -331,7 +331,6 @@ The Shapiro–Wilk test indicated that the distribution of the differences did n
 
 ```{r t test efect of sex} 
 resultat <- t.test(women, men, paired = FALSE)
-
 resultat
 ```
 
@@ -350,10 +349,19 @@ ggplot(w_plot, aes(x = time, y = value, fill = time)) +
        x = "Sex", y = "Weight") +
   theme_minimal()
 ```
-** Results : ** There was no significant difference in weight between men and women (p = 0.7331). Stereotype.
+
+**Results :** There was no significant difference in weight between men and women (p = 0.7331). Stereotype.
 
 #### Do women smoke less?
+```{r Chi-square test}
+tab <- table(snore$sex, snore$tabac)
+tab
+
+# Chi-square test
+chisq.test(tab)
+
+```
+**Results : ** A chi-square test revealed that women were significantly less likely to smoke than men (χ² = 7.0023, p = 0.00814), supporting the stereotype that women smoke less.
 
 
-From a more general perspective:
-Are there any correlations between variables?
+#### Are there any correlations between variables?
