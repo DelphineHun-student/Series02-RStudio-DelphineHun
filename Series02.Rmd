@@ -38,8 +38,8 @@ This file contains measures of upper extremity nonuse:
 
 Description of the experiment, the variables and the data (units and the range of possible values).
 
-| name | description | unit | range
-|---|-------|--|-----
+| name | description | unit | range |
+|:----:|:-----------:|:----:|:-----:|
 | PANU | Proximal Arm Non Use | % | O-100 |
 | SANU | Shoulder Antepulsion Non Use | % | O-100 |
 | EENU | Elbow Extension Non Use | % | O-100 |
