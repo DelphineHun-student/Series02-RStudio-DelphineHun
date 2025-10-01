@@ -171,12 +171,12 @@ A statistical test is a method to decide if data provide enough evidence to reje
 ### When to use a statistical test?
 A statistical test is used when we need to evaluate if an observed effect is unlikely to have occurred by chance.
 
-- https://www.scribbr.com/statistics/statistical-tests/?utm_source=chatgpt.com
+- https://www.scribbr.com/statistics/statistical-tests
 
 ### Parametric test and non-parametric test
 Parametric tests assume specific data distributions (e.g., normality), while non-parametric tests make fewer assumptions and work with ranks or ordinal data.
 
-- https://www.scribbr.com/statistics/statistical-tests/?utm_source=chatgpt.com
+- https://www.scribbr.com/statistics/statistical-tests
 
 ### Assumptions of parametric tests
 Parametric tests typically assume that the data (or residuals) are normally distributed, that variances are homogeneous across groups, that observations are independent, and that the variables are measured on an interval or ratio scale.
@@ -233,14 +233,14 @@ We want to test whether the treatment leads to a measurable improvement in perfo
 We will compare the performance of the same participants before and after the treatment. Since the same subjects are measured twice, this is a paired comparison.
 
 **Test?**
-Before choosing the appropriate statistical test, we first need to assess whether the differences between before and after measurements follow a normal distribution. We used the Shapiro–Wilk test (Shapiro & Wilk, 1965) to assess whether the distribution of differences between before and after measurements could be considered normal, since the choice between a paired t-test and a Wilcoxon signed-rank test depends on this assumption
+Before choosing the appropriate statistical test, we first need to assess whether the differences between before and after measurements follow a normal distribution. Given the small sample size, the Shapiro–Wilk test was considered the most appropriate method to assess the normality of the distribution of differences
+
+- https://statistics.laerd.com/spss-tutorials/testing-for-normality-using-spss-statistics.php
 ```{r Shapiro-Wilk test}
 diff <- prepost$perf[prepost$time=="After"] - prepost$perf[prepost$time=="Before"]
 shapiro.test(diff)
-
-hist(diff, main="Histogram of differences", xlab="After - Before")
-qqnorm(diff); qqline(diff, col="red")
 ```
+The Shapiro–Wilk test indicated that the distribution of the differences did not significantly deviate from normality (W = 0.899, p = 0.283). Therefore, we applied a paired t-test to evaluate the effect of the treatment
 
 Which graph illustrates the effect of the treatment?
 
