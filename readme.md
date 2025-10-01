@@ -30,13 +30,13 @@ The goal was to practice basic statistical analysis: from descriptive statistics
 ### b) Snoring dataset
 - Tested stereotypes such as:  
   - *Are snorers fatter?* → Wilcoxon test (weight ~ snorer).  
-  - *Do women smoke less?* → Chi-square / Fisher’s exact test (smoking ~ sex). 
+  - *Do women smoke less?* → Chi-square (smoking ~ sex). 
   - ...
 - Visualizations: boxplots and barplots
 
 ### c) Treatment dataset (Before vs After)
 - Normality of differences tested with **Shapiro–Wilk**.  
-- Applied **paired t-test** (if normal) or **Wilcoxon signed-rank test**.  
+- Applied **paired t-test** (if normal), **Wilcoxon signed-rank test** or **Chi-square**.  
 - Visualized effect with boxplots and line plots.
 
 ---
@@ -46,13 +46,5 @@ The goal was to practice basic statistical analysis: from descriptive statistics
   *“A paired t-test revealed that performance was significantly higher after treatment compared to before (t(7) = –5.40, p = 0.001).”*  
 - Non-significant results explicitly reported, e.g.:  
   *“No significant difference in weight was found between snorers and non-snorers (p > 0.05).”*
-
----
-
-## 6. Limits of the Analysis
-- Some associations were weak or explained little variance.  
-- Non-normality and missing data reduced statistical power.  
-- Parametric assumptions often not satisfied → reliance on non-parametric tests.
-
 
 ---
