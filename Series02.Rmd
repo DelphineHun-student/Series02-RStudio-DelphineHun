@@ -123,8 +123,13 @@ cat("Regression equation : PANU =", a, "* EENU +", b, "\n")
 Spearman’s rank correlation rho showed a weak but significant positive association between PANU and SANU (ρ = 0.216, p = 0.0017), while a moderate and significant positive association was found between PANU and EENU (ρ = 0.387, p < 0.0001). Linear regression analyses confirmed these results: no significant relationship was observed between SANU and PANU (SANU = 0.089 × PANU + 0.586, R² = 0.009, p = 0.171), whereas a significant positive relationship was found between EENU and PANU (EENU = 0.565 × PANU + 3.284, R² = 0.225, p < 0.0001). When PANU was expressed as a function of SANU and EENU, the regression equations obtained were PANU = 11.195 × SANU – 6.561 and PANU = 1.771 × EENU – 5.816,  respectively.
 (with GPT's help)
 
-- What are the limits of your analysis?
+- Limits
 
-
-
+The present analysis has several limitations.
+First, the correlations observed were relatively weak, with rho values of 0.216 for PANU–SANU and 0.387 for PANU–EENU, indicating that only a small proportion of the variance is explained.
+Second, the linear regression between PANU and SANU was not significant (R² = 0.009, p = 0.171), and even the significant regression between PANU and EENU explained only a modest proportion of variance (R² = 0.225).
+Third, the dataset contains a high number of missing values (223 for SANU and EENU, 13 for PANU), reducing statistical power and potentially biasing the analysis.
+In addition, the variables show large variability and extreme values, which may reflect outliers or measurement noise.
+Finally, the use of linear regression assumes a linear relationship, which may not fully capture the complexity of the data
+(with GPT's help)
 
