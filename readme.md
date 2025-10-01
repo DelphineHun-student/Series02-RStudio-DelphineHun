@@ -48,3 +48,16 @@ The goal was to practice basic statistical analysis: from descriptive statistics
   *“No significant difference in weight was found between snorers and non-snorers (p > 0.05).”*
 
 ---
+## 6. References
+
+- https://www.khanacademy.org/math/statistics-probability/summarizing-quantitative-data
+- https://www.statisticshowto.com/probability-and-statistics/statistics-definitions/variance/
+- https://www.khanacademy.org/math/statistics-probability/modeling-distributions-of-data
+- https://en.wikipedia.org/wiki/Statistical_hypothesis_testing
+- https://www.scribbr.com/statistics/statistical-tests
+- https://www.scribbr.com/frequently-asked-questions/assumptions-of-statistical-tests/
+- https://www.scribbr.com/statistics/nonparametric-tests/
+- https://www.scribbr.com/statistics/p-value/
+- https://www.scribbr.com/statistics/type-i-and-type-ii-errors/
+- https://www.scribbr.com/statistics/paired-t-test-vs-unpaired-t-test/
+- https://statistics.laerd.com/spss-tutorials/testing-for-normality-using-spss-statistics.php
