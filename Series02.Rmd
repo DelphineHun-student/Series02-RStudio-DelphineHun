@@ -207,7 +207,6 @@ A paired test compares related samples (e.g., before/after on the same subjects)
 In clinical and sport research, a common question is whether a treatment or training intervention produces an effect over time. To address this scientifically, measurements need to be collected before and after the intervention, and ideally at later time points, to evaluate both the immediate and the lasting effects
 
 ### The data
-Download the file PrePost.csv
 ```{r load data PrePost}
 prepost <- read.csv("data/test_data/PrePost.csv", sep=",", header=TRUE)
 head(prepost)
@@ -273,12 +272,15 @@ ggplot(df_plot, aes(x = time, y = value, fill = time)) +
 
 
 ## Testing some stereotypes
-Humans have stereotypes, some of them are probably true, some others are probably false (e.g., ref ).
+Stereotypes about snorers among others.
 
-Here, we will test stereotypes about snorers… among others.
-
-2.3.1 The data
+### The data
 Download the file snore.txt
+```{r load data snore}
+snore <- read.table("data/test_data/snore.txt", header = TRUE)
+head(snore)
+summary(snore)
+```
 
 This file contains anthropometric and qualitative measurements (1 person per line).
 
