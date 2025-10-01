@@ -139,7 +139,7 @@ Finally, the use of linear regression assumes a linear relationship, which may n
 
 # Statistical tests: comparison of medians (or means?)
 
-In this series of exercises, you will explore how to compare two groups of data, using non-parametric tests (or parametric tests… if it makes sense to do so).
+In this series of exercises, you will explore how to compare two groups of data, using non-parametric tests (or parametric tests… if it makes sense to do so)
 
 2.1 Make clear what is a statistical test, and when to use it.
 Below are some questions to guide your analysis. You can answer them in your notebook, with a short sentence for each question.
