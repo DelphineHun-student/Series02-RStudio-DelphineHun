@@ -47,9 +47,37 @@ cor.test(nonuse$PANU, nonuse$SANU, method = "spearman")
 
 - Visualize the PANU-SANU relationship (and the PANU-EENU relationship)
 
+```{r plot SANU-lm}
+library(ggplot2)
+ggplot(nonuse, aes(x=PANU, y=SANU)) +
+  geom_point() +
+  geom_smooth(method='lm', formula= y~x, color='blue', se=T) +
+  # xlim(-10, 60) +
+  # ylim(-50, 50) +
+  
+labs(title="PANU vs. SANU", x="PANU (%)", y="SANU")
+theme_minimal()
+```
+
+library(ggplot2)
+ggplot(nonuse, aes(x=PANU, y=SANU)) +
+  geom_point()
+  xlim(0, 100)
+lab:(title "PANU vs. SANU")
+
 - Perform a linear regression for PANU-SANU (and for PANU-EENU)
 
 - Give the regression equations: PANU = a * SANU + b and PANU = a * EENU + b
+```{r lm/SANU}
+lm_sanu <- lm(SANU ~ PANU, data=nonuse)
+summary(lm_sanu)
+coef(lm_sanu)
+slope <- coef(lm_sanu)[2]
+intercept <- coef(lm_sanu)[1] #?
+cat("Regression equation: SANU=", slope, "PANU +", intercept, "\n")
+```
+
+
 - Summarize your results as you would do in your master’s thesis report, or as in a scientific article (e.g., What sentence will you write in the article explaining your result?).
 - What are the limits of your analysis?
 
