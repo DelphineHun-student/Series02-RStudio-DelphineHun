@@ -237,16 +237,42 @@ Before choosing the appropriate statistical test, we first need to assess whethe
 
 - https://statistics.laerd.com/spss-tutorials/testing-for-normality-using-spss-statistics.php
 ```{r Shapiro-Wilk test}
-diff <- prepost$perf[prepost$time=="After"] - prepost$perf[prepost$time=="Before"]
+before = prepost$perf[prepost$time=="Before"]
+after = prepost$perf[prepost$time=="After"]
+
+diff <- after - before
 shapiro.test(diff)
 ```
 The Shapiro–Wilk test indicated that the distribution of the differences did not significantly deviate from normality (W = 0.899, p = 0.283). Therefore, we applied a paired t-test to evaluate the effect of the treatment
 
-Which graph illustrates the effect of the treatment?
+```{r}
+resultat <- t.test(before, after, paired = TRUE)
 
-What sentence will you write in your thesis to explain your result?
+resultat
+```
 
-2.3 Testing some stereotypes
+**Graph?**
+
+```{r}
+df_plot <- data.frame(
+  value = c(before, after),
+  time  = factor(rep(c("Before", "After"), each = length(before)),
+                 levels = c("Before", "After"))
+)
+
+library(ggplot2)
+ggplot(df_plot, aes(x = time, y = value, fill = time)) +
+  geom_boxplot(alpha = 0.4) +
+  geom_jitter(width = 0.1, size = 2) +
+  labs(title = "Effect of treatment",
+       x = "Time", y = "Performance") +
+  theme_minimal()
+```
+
+**Results?** A paired t-test revealed that performance was significantly higher after the treatment compared to before (t(7) = –5.40, p = 0.001). The mean improvement was 2.5 units, with a 95% confidence interval ranging from 1.41 to 3.59, indicating a positive effect of the rehabilitation program.
+
+
+## Testing some stereotypes
 Humans have stereotypes, some of them are probably true, some others are probably false (e.g., ref ).
 
 Here, we will test stereotypes about snorers… among others.
