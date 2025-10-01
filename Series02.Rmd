@@ -298,7 +298,7 @@ boxplot(weight ~ snore, data = snore,
 
 wilcox.test(weight ~ snore, data = snore)
 ```
-**Results :** 
+**Results :** There was no significant difference in weight between snorers and non-snorers (p = 0.9079), suggesting that the stereotype is not confirmed in this sample
 
 before = prepost$perf[prepost$time=="Before"]
 Do snorers drink or smoke more?
