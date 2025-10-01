@@ -59,7 +59,20 @@ ggplot(nonuse, aes(x=PANU, y=SANU)) +
   # xlim(-10, 60) +
   # ylim(-50, 50) +
   
-labs(title="PANU vs. SANU", x="PANU (%)", y="SANU")
+labs(title="PANU vs. SANU", x="PANU (%)", y="SANU (%)")
+```
+
+
+```{r plot EENU-lm}
+
+ggplot(nonuse, aes(x=PANU, y=EENU)) +
+  geom_point() +
+  geom_smooth(method='lm', formula= y~x, color='blue', se=T) +
+  # xlim(-10, 60) +
+  # ylim(-50, 50) +
+  
+labs(title="PANU vs. EENU", x="PANU (%)", y="EENU (%)")
+theme_minimal()
 theme_minimal()
 ```
 
