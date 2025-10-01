@@ -304,7 +304,7 @@ wilcox.test(weight ~ snore, data = snore)
 
 
 #### Are men fatter?
-```{r}
+```{r shapiro test H/F}
 men = data_s$weight[data_s$sex=="H"]
 women = data_s$weight[data_s$sex=="F"]
 
@@ -313,6 +313,28 @@ shapiro.test(diff_HF)
 ```
 The Shapiro–Wilk test indicated that the distribution of the differences did not significantly deviate from normality (W = 0.97383, p = 0.1223). Therefore, we applied a paired t-test to evaluate the imapact of the sex on weight.
 
+```{r t test efect of sex} 
+resultat <- t.test(women, men, paired = FALSE)
+
+resultat
+```
+
+```{r plot effect of sex on weight}
+w_plot <- data.frame(
+  value = c(women, men),
+  time  = factor(rep(c("Women", "Men"), each = length(women)),
+                 levels = c("Women", "Men"))
+)
+
+library(ggplot2)
+ggplot(w_plot, aes(x = time, y = value, fill = time)) +
+  geom_boxplot(alpha = 0.4) +
+  geom_jitter(width = 0.1, size = 2) +
+  labs(title = "Effect of sex on weight",
+       x = "Sex", y = "Weight") +
+  theme_minimal()
+```
+** Results : ** There was no significant difference in weight between men and women (p = 0.7331). Stereotype.
 
 Do women smoke less?
 From a more general perspective:
