@@ -318,6 +318,23 @@ wilcox.test(alcool ~ snore, data = data_s)
 ```
 **Results :** There is a significant difference in alcool consomation between snorers and non-snorers (p =  0.008594), suggesting that the stereotype is confirmed in this sample/
 
+**tabac consomation**
+```{r Chi-square test smoke/snore}
+tab_1 <- table(data_s$snore, data_s$tabac)
+tab_1
+
+# Chi-square test
+chisq.test(tab_1)
+
+```
+```{r}
+prop_tab_1 <- prop.table(tab_1, margin = 1)  # proportion par ligne
+barplot(t(prop_tab_1), beside = TRUE, legend = TRUE,
+        main = "Smoking status by Snorer Status",
+        xlab = "Snorer Status", ylab = "Proportion")
+```
+
+**Results :** No significant difference was found in smoking prevalence between snorers and non snorers (p = 0.4066), suggesting that the stereotype is not confirmed by the data.
 
 #### Are men fatter?
 ```{r shapiro test H/F}
