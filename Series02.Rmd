@@ -284,7 +284,7 @@ This file contains anthropometric and qualitative measurements (1 person per lin
 
 ### The analysis
 Do the data confirm the following stereotypes? Provide a reasoned answer (data, figure, result sentence) for each question.
-Are snorers fatter?**
+#### Are snorers fatter?
 ```{r}
 weight = data_s$weight
 shapiro.test(weight)
@@ -300,9 +300,20 @@ wilcox.test(weight ~ snore, data = snore)
 ```
 **Results :** There was no significant difference in weight between snorers and non-snorers (p = 0.9079), suggesting that the stereotype is not confirmed in this sample
 
-before = prepost$perf[prepost$time=="Before"]
-Do snorers drink or smoke more?
-Are men fatter?
+#### Do snorers drink or smoke more?
+
+
+#### Are men fatter?
+```{r}
+men = data_s$weight[data_s$sex=="H"]
+women = data_s$weight[data_s$sex=="F"]
+
+diff_HF = women - men
+shapiro.test(diff_HF)
+```
+The Shapiro–Wilk test indicated that the distribution of the differences did not significantly deviate from normality (W = 0.97383, p = 0.1223). Therefore, we applied a paired t-test to evaluate the imapact of the sex on weight.
+
+
 Do women smoke less?
 From a more general perspective:
 Are there any correlations between variables?
