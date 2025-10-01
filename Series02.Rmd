@@ -139,19 +139,62 @@ Finally, the use of linear regression assumes a linear relationship, which may n
 
 # Statistical tests: comparison of medians (or means?)
 
-In this series of exercises, you will explore how to compare two groups of data, using non-parametric tests (or parametric tests… if it makes sense to do so)
+In this series of exercises, the aim is to explore how to compare two groups of data, using non-parametric tests (or parametric tests).
 
-2.1 Make clear what is a statistical test, and when to use it.
-Below are some questions to guide your analysis. You can answer them in your notebook, with a short sentence for each question.
+## Definition
 
-What is a median? A mean?
-What is a variance? A standard deviation?
-What is a normal distribution?
-What is a statistical test?
-When to use a statistical test?
-What is a parametric test? A non-parametric test?
-What are the assumptions of parametric tests?
-What are the assumptions of non-parametric tests?
-What is a p-value?
-What is the risk of error when using a statistical test?
-What is the difference between a paired and an unpaired test?
+### Mean and median
+The mean is the arithmetic average of a dataset. Median is the middle value that divides the dataset into two equal halves
+
+- https://www.khanacademy.org/math/statistics-probability/summarizing-quantitative-data
+
+### Variance and Standard Deviation (SD)
+Variance measures the average squared distance from the mean, while the standard deviation is its square root, expressed in the same units as the data.
+
+- https://www.statisticshowto.com/probability-and-statistics/statistics-definitions/variance/
+
+### A normal distribution
+
+A normal distribution is a symmetric, bell-shaped curve characterized by its mean and standard deviation.
+
+- https://www.khanacademy.org/math/statistics-probability/modeling-distributions-of-data
+
+### Statistical test
+A statistical test is a method to decide if data provide enough evidence to reject a null hypothesis
+
+- https://en.wikipedia.org/wiki/Statistical_hypothesis_testing
+
+### When to use a statistical test?
+A statistical test is used when we need to evaluate if an observed effect is unlikely to have occurred by chance.
+
+- https://www.scribbr.com/statistics/statistical-tests/?utm_source=chatgpt.com
+
+### Parametric test and non-parametric test
+Parametric tests assume specific data distributions (e.g., normality), while non-parametric tests make fewer assumptions and work with ranks or ordinal data.
+
+- https://www.scribbr.com/statistics/statistical-tests/?utm_source=chatgpt.com
+
+### Assumptions of parametric tests
+Parametric tests typically assume that the data (or residuals) are normally distributed, that variances are homogeneous across groups, that observations are independent, and that the variables are measured on an interval or ratio scale.
+
+- https://www.scribbr.com/frequently-asked-questions/assumptions-of-statistical-tests/
+
+### Assumptions of non-parametric tests
+Non-parametric tests assume fewer conditions, mainly independence of observations and appropriate data scale (ordinal or rank).
+
+- https://www.scribbr.com/statistics/nonparametric-tests/
+
+### p-value
+A p-value is the probability of observing results as extreme as those in your sample, assuming the null hypothesis is true.
+
+- https://www.scribbr.com/statistics/p-value/
+
+### What is the risk of error when using a statistical test?
+A test involves risks: rejecting H0 when it is true (Type I error, α) or failing to reject H0 when H1 is true (Type II error, β).
+
+- https://www.scribbr.com/statistics/type-i-and-type-ii-errors/
+
+### What is the difference between a paired and an unpaired test?
+A paired test compares related samples (e.g., before/after on the same subjects), while an unpaired test compares independent groups.
+
+- https://www.scribbr.com/statistics/paired-t-test-vs-unpaired-t-test/
