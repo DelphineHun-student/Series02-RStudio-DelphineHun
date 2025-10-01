@@ -23,7 +23,7 @@ We investigate whether there is a relationship between the nonuse of the proxima
 
 The dataset is far from perfect, which reflects the reality of experimental research, particularly in clinical contexts.
 
-```{r load data}
+```{r load data NonUse}
 nonuse <- read.csv("data/test_data/NonUse.csv", sep=",", header=TRUE)
 head(nonuse)
 summary(nonuse)
@@ -198,3 +198,53 @@ A test involves risks: rejecting H0 when it is true (Type I error, α) or failin
 A paired test compares related samples (e.g., before/after on the same subjects), while an unpaired test compares independent groups.
 
 - https://www.scribbr.com/statistics/paired-t-test-vs-unpaired-t-test/
+
+
+## Effect of treatment over time
+In clinical and sport research, a common question is whether a treatment or training intervention produces an effect over time. To address this scientifically, measurements need to be collected before and after the intervention, and ideally at later time points, to evaluate both the immediate and the lasting effects
+
+### The data
+Download the file PrePost.csv
+```{r load data PrePost}
+prepost <- read.csv("data/test_data/PrePost.csv", sep=",", header=TRUE)
+head(prepost)
+summary(prepost)
+```
+
+This file contains before/after measurements. The treatment is a rehabilitation training for individuals with cardiac conditions.
+
+
+
+| Variable | Description | Unit | Possible values | Expected change |
+
+2.2.2 The analysis
+You want to know if the treatment has an effect on one or more of the measured variables.
+
+Does the treatment have an effect?
+
+What comparison are you going to make?
+
+Which test will you use? Parametric or non-parametric?
+
+Which graph illustrates the effect of the treatment?
+
+What sentence will you write in your thesis to explain your result?
+
+2.3 Testing some stereotypes
+Humans have stereotypes, some of them are probably true, some others are probably false (e.g., ref ).
+
+Here, we will test stereotypes about snorers… among others.
+
+2.3.1 The data
+Download the file snore.txt
+
+This file contains anthropometric and qualitative measurements (1 person per line).
+
+2.3.2 The analysis
+Do the data confirm the following stereotypes? Provide a reasoned answer (data, figure, result sentence) for each question.
+Are snorers fatter?
+Do snorers drink or smoke more?
+Are men fatter?
+Do women smoke less?
+From a more general perspective:
+Are there any correlations between variables?
