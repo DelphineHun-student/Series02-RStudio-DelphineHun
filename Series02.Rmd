@@ -276,7 +276,7 @@ Stereotypes about snorers among others.
 
 ### The data
 ```{r load data snore}
-snore <- read.table("data/test_data/snore.txt", header = TRUE)
+data_s <- read.table("data/test_data/snore.txt", header = TRUE)
 head(snore)
 summary(snore)
 ```
@@ -286,16 +286,19 @@ This file contains anthropometric and qualitative measurements (1 person per lin
 Do the data confirm the following stereotypes? Provide a reasoned answer (data, figure, result sentence) for each question.
 Are snorers fatter?**
 ```{r}
-weight = snore$weight
+weight = data_s$weight
 shapiro.test(weight)
 ```
 The Shapiro–Wilk test indicated that the distribution significantly deviate from normality (W = 0.899, p < 0.001).
 
-```{r snore variables}
-snorers = snore$[snore$snore=="O"]
-women = snore$[snore$sex=="F"]
-men = snore$[snore$sex=="H"]
+```{r blot + wilcoxon test}
+boxplot(weight ~ snore, data = snore,
+        main = "Weight by Snorer Status",
+        xlab = "Snorer", ylab = "Weight")
+
+wilcox.test(weight ~ snore, data = snore)
 ```
+**Results :** 
 
 before = prepost$perf[prepost$time=="Before"]
 Do snorers drink or smoke more?
