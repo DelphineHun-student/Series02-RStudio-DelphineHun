@@ -302,7 +302,8 @@ wilcox.test(weight ~ snore, data = data_s)
 **Results :** There was no significant difference in weight between snorers and non-snorers (p = 0.9079), suggesting that the stereotype is not confirmed in this sample
 
 #### Do snorers drink more? Smoke more?
-**alcool consomation :**
+
+**Alcool consumption :**
 ```{r}
 alcool = data_s$alcool
 shapiro.test(alcool)
@@ -311,14 +312,14 @@ The Shapiro–Wilk test indicated that the distribution significantly deviate fr
 
 ```{r plot + wilcoxon test alcool}
 boxplot(alcool ~ snore, data = data_s,
-        main = "Alcool consomation by Snorer Status",
+        main = "Alcool consumption by Snorer Status",
         xlab = "Snorer", ylab = "Weight")
 
 wilcox.test(alcool ~ snore, data = data_s)
 ```
 **Results :** There is a significant difference in alcool consomation between snorers and non-snorers (p =  0.008594), suggesting that the stereotype is confirmed in this sample/
 
-**tabac consomation**
+**Tabac consumption**
 ```{r Chi-square test smoke/snore}
 tab_1 <- table(data_s$snore, data_s$tabac)
 tab_1
@@ -389,3 +390,10 @@ barplot(t(prop_tab), beside = TRUE, legend = TRUE,
 
 
 #### Are there any correlations between variables?
+
+```{r correlations between variables}
+cor.test(data_s$age, data_s$weight, method = "spearman")
+cor.test(data_s$age, data_s$height, method = "spearman")
+cor.test(data_s$weight, data_s$height, method = "spearman")
+```
+- Spearman’s rank correlations did not reveal any significant associations between age, weigh consumption (all p > 0.05). Spearman’s rank correlation rho only showed a significant positive association between weight and height.
