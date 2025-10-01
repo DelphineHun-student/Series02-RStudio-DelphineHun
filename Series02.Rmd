@@ -277,13 +277,14 @@ Stereotypes about snorers among others.
 ### The data
 ```{r load data snore}
 data_s <- read.table("data/test_data/snore.txt", header = TRUE)
-head(snore)
-summary(snore)
+head(data_s)
+summary(data_s)
 ```
 This file contains anthropometric and qualitative measurements (1 person per line).
 
 ### The analysis
 Do the data confirm the following stereotypes? Provide a reasoned answer (data, figure, result sentence) for each question.
+
 #### Are snorers fatter?
 ```{r}
 weight = data_s$weight
@@ -291,16 +292,31 @@ shapiro.test(weight)
 ```
 The Shapiro–Wilk test indicated that the distribution significantly deviate from normality (W = 0.899, p < 0.001).
 
-```{r blot + wilcoxon test}
-boxplot(weight ~ snore, data = snore,
+```{r plot + wilcoxon test}
+boxplot(weight ~ snore, data = data_s,
         main = "Weight by Snorer Status",
         xlab = "Snorer", ylab = "Weight")
 
-wilcox.test(weight ~ snore, data = snore)
+wilcox.test(weight ~ snore, data = data_s)
 ```
 **Results :** There was no significant difference in weight between snorers and non-snorers (p = 0.9079), suggesting that the stereotype is not confirmed in this sample
 
 #### Do snorers drink or smoke more?
+**alcool consomation :**
+```{r}
+alcool = data_s$alcool
+shapiro.test(alcool)
+```
+The Shapiro–Wilk test indicated that the distribution significantly deviate from normality (W = 0.83114, p < 0.001)
+
+```{r plot + wilcoxon test}
+boxplot(alcool ~ snore, data = data_s,
+        main = "Alcool consomation by Snorer Status",
+        xlab = "Snorer", ylab = "Weight")
+
+wilcox.test(alcool ~ snore, data = data_s)
+```
+**Results :** There is a significant difference in alcool consomation between snorers and non-snorers (p =  0.008594), suggesting that the stereotype is confirmed in this sample/
 
 
 #### Are men fatter?
@@ -336,6 +352,8 @@ ggplot(w_plot, aes(x = time, y = value, fill = time)) +
 ```
 ** Results : ** There was no significant difference in weight between men and women (p = 0.7331). Stereotype.
 
-Do women smoke less?
+#### Do women smoke less?
+
+
 From a more general perspective:
 Are there any correlations between variables?
