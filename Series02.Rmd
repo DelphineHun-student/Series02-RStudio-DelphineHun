@@ -361,6 +361,14 @@ tab
 chisq.test(tab)
 
 ```
+```{r}
+prop_tab <- prop.table(tab, margin = 1)  # proportion par ligne
+barplot(t(prop_tab), beside = TRUE, legend = TRUE,
+        main = "Smoking status by sex",
+        xlab = "Sex", ylab = "Proportion")
+```
+
+
 **Results : ** A chi-square test revealed that women were significantly less likely to smoke than men (χ² = 7.0023, p = 0.00814), supporting the stereotype that women smoke less.
 
 
