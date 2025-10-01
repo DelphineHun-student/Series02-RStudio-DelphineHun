@@ -213,7 +213,10 @@ summary(prepost)
 
 This file contains before/after measurements. The treatment is a rehabilitation training for individuals with cardiac conditions.
 
-
+| Variable | Description         | Unit   | Possible values             | Expected change           |
+|:---------|:-------------------:|:------:|:---------------------------:|:-------------------------:|
+| perf     | Performance Measure | bpm    | Numeric values (50–200)     | increase after rehab      |
+| time     | Time of measurement | factor | "Before" / "After"          | no change                 |
 
 | Variable | Description | Unit | Possible values | Expected change |
 
