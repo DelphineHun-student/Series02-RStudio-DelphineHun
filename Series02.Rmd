@@ -50,7 +50,7 @@ We used a Spearman correlation, because we don't have assumptions about the dist
 cor.test(nonuse$PANU, nonuse$SANU, method = "spearman")
 ```
 
-- PANU-SANU relationship (and the PANU-EENU relationship)
+- PANU-SANU relationship
 ```{r plot SANU-lm}
 library(ggplot2)
 ggplot(nonuse, aes(x=PANU, y=SANU)) +
@@ -61,8 +61,7 @@ ggplot(nonuse, aes(x=PANU, y=SANU)) +
   
 labs(title="PANU vs. SANU", x="PANU (%)", y="SANU (%)")
 ```
-
-
+- PANU-EENU relationship
 ```{r plot EENU-lm}
 
 ggplot(nonuse, aes(x=PANU, y=EENU)) +
@@ -76,7 +75,7 @@ theme_minimal()
 theme_minimal()
 ```
 
-- Linear regression for PANU-SANU (and for PANU-EENU)
+- Linear regression for PANU-SANU
 ```{r lm/SANU}
 lm_sanu <- lm(SANU ~ PANU, data=nonuse)
 summary(lm_sanu)
@@ -84,6 +83,15 @@ coef(lm_sanu)
 slope <- coef(lm_sanu)[2]
 intercept <- coef(lm_sanu)[1] #?
 cat("Regression equation: SANU=", slope, "PANU +", intercept, "\n")
+```
+- Linear regression for PANU-EENU
+```{r lm/EENU}
+lm_eenu <- lm(EENU ~ PANU, data=nonuse)
+summary(lm_eenu)
+coef(lm_eenu)
+slope <- coef(lm_eenu)[2]
+intercept <- coef(lm_eenu)[1] 
+cat("Regression equation: EENU=", slope, "PANU +", intercept, "\n")
 ```
 
 - Regression equations: PANU = a * SANU + b and PANU = a * EENU + b
